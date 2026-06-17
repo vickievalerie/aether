@@ -104,35 +104,34 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-2xl border-b border-white/10 shadow-[0_0_40px_rgba(173,198,255,0.05)]">
 <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
-<div class="flex items-center gap-4">
-<img alt="NEURAL STUDIO Logo" class="h-8 w-auto" src="assets/logo.png">
-<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tighter">AETHER</span>
-</div>
-<div class="hidden md:flex items-center gap-8">
-<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="#disciplines">Художники</a>
+<a class="flex items-center gap-4" href="#top" aria-label="В начало страницы"><img alt="AETHER Logo" class="h-8 w-auto" src="assets/logo.png"><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tighter">AETHER</span></a>
+<div class="hidden lg:flex items-center gap-8">
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="artists.html">Художники</a>
 <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="#disciplines">Фотографы</a>
 <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="#disciplines">Дизайнеры</a>
-<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="#showcase">Библиотека</a>
 <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="#why">О проекте</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="#showcase">Галерея</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="#author">Об авторе</a>
 </div>
 <div class="flex items-center gap-6">
 <button aria-label="Переключить тему" class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="dark_mode" id="theme-toggle" type="button">dark_mode</button>
-<button class="hidden md:inline-flex bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-full active:scale-95 transition-transform">
+<button class="hidden lg:inline-flex bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-full active:scale-95 transition-transform">
                     Начать
                 </button>
-<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Открыть меню" class="md:hidden material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="menu" id="mobile-menu-toggle" type="button">menu</button>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Открыть меню" class="lg:hidden material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="menu" id="mobile-menu-toggle" type="button">menu</button>
 </div>
 </div>
-<div class="mobile-menu-panel md:hidden absolute left-4 right-4 top-[64px] rounded-xl glass-panel border border-white/10 px-4 py-3" id="mobile-menu">
-<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#disciplines">Художники</a>
+<div class="mobile-menu-panel lg:hidden absolute left-4 right-4 top-[64px] rounded-xl glass-panel border border-white/10 px-4 py-3" id="mobile-menu">
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="artists.html">Художники</a>
 <a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#disciplines">Фотографы</a>
 <a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#disciplines">Дизайнеры</a>
-<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#showcase">Библиотека</a>
 <a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#why">О проекте</a>
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#showcase">Галерея</a>
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="#author">Об авторе</a>
 </div>
 </nav>
 <!-- Hero Section -->
-<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="top">
 <div class="absolute inset-0 z-0">
 <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/40 to-[#050505] z-10"></div>
 <div class="parallax-bg hero-bg w-full h-full bg-cover bg-center transition-opacity duration-1000 pulse-bg"></div>
@@ -309,7 +308,19 @@
 </div>
 </div>
 </section>
-<!-- Footer -->
+<!-- Author -->
+<section class="py-32 px-margin-desktop max-w-container-max mx-auto" id="author">
+<div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-gutter items-center">
+<div class="relative overflow-hidden rounded-2xl border border-white/10 glass-panel author-photo-wrap">
+<img alt="Виктория Валерьевна" class="w-full aspect-[4/5] object-cover" src="assets/me.jfif">
+</div>
+<div class="flex flex-col gap-6">
+<span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase">Автор проекта</span>
+<h2 class="font-headline-lg text-headline-lg">Виктория Валерьевна</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-3xl">Я заканчиваю МИРЭА по направлению компьютерный дизайн, увлекаюсь веб-программированием и дизайном, работаю в медиа-продакшене «Лимонад» и люблю котиков.</p>
+</div>
+</div>
+</section><!-- Footer -->
 <footer class="bg-surface-container-lowest border-t border-outline-variant/30 w-full py-12 relative z-10">
 <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
 <div class="flex flex-col items-center md:items-start gap-4">
@@ -317,11 +328,11 @@
 <img alt="Logo" class="h-6" src="assets/logo.png">
 <span class="font-headline-sm text-headline-sm font-bold text-primary uppercase"><br></span>
 </div>
-<p class="font-label-md text-label-md text-on-surface-variant opacity-80">© 2024 NEURAL STUDIO. СОЗДАНО ДЛЯ ВИЗИОНЕРОВ.</p>
+<p class="font-label-md text-label-md text-on-surface-variant opacity-80">ⓒ 2026 vickievalerie все права защищены</p>
 </div>
 <div class="flex gap-8">
-<a class="text-on-surface-variant font-label-md hover:text-tertiary transition-colors" href="#">Twitter</a>
-<a class="text-on-surface-variant font-label-md hover:text-tertiary transition-colors" href="#">Discord</a>
+<a class="text-on-surface-variant font-label-md hover:text-tertiary transition-colors" href="https://t.me/vickievalerie">Telegram</a>
+<a class="text-on-surface-variant font-label-md hover:text-tertiary transition-colors" href="https://vk.com/vickievalerie">ВКонтакте</a>
 <a class="text-on-surface-variant font-label-md hover:text-tertiary transition-colors" href="#">Условия</a>
 <a class="text-on-surface-variant font-label-md hover:text-tertiary transition-colors" href="#">Конфиденциальность</a>
 </div>
@@ -464,3 +475,6 @@
 
 
 </body></html>
+
+
+
