@@ -1,7 +1,7 @@
 <!DOCTYPE html><html class="dark" lang="ru"><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>AETHER | Художники</title>
+<title>AETHER | Фотографы</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -106,8 +106,8 @@
 <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
 <a class="flex items-center gap-4" href="index.html#top" aria-label="В начало страницы"><img alt="AETHER Logo" class="h-8 w-auto" src="assets/logo.png"><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tighter">AETHER</span></a>
 <div class="hidden lg:flex items-center gap-8">
-<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="artists.html" aria-current="page">Художники</a>
-<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="photographers.html">Фотографы</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="artists.html">Художники</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="photographers.html" aria-current="page">Фотографы</a>
 <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="designers.html">Дизайнеры</a>
 <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="index.html#why">О проекте</a>
 <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="index.html#showcase">Галерея</a>
@@ -122,8 +122,8 @@
 </div>
 </div>
 <div class="mobile-menu-panel lg:hidden absolute left-4 right-4 top-[64px] rounded-xl glass-panel border border-white/10 px-4 py-3" id="mobile-menu">
-<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="artists.html" aria-current="page">Художники</a>
-<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="photographers.html">Фотографы</a>
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="artists.html">Художники</a>
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="photographers.html" aria-current="page">Фотографы</a>
 <a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="designers.html">Дизайнеры</a>
 <a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="index.html#why">О проекте</a>
 <a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="index.html#showcase">Галерея</a>
@@ -133,31 +133,38 @@
 <main class="artists-page relative z-10 pt-32 pb-24 px-margin-desktop max-w-container-max mx-auto">
 <section class="artists-hero animate-fade-up visible">
 <div class="artists-hero-copy">
-<h1 class="font-display-lg text-headline-lg lg:text-display-lg leading-[1.05] tracking-tight">Художники</h1>
-<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl">Исследуйте мир генеративного искусства через работы ведущих мастеров нейронных сетей.</p>
+<h1 class="font-display-lg text-headline-lg lg:text-display-lg leading-[1.05] tracking-tight">Фотографы</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl">Исследуйте визуальный язык нейросетевой фотографии через свет, объективы и композицию.</p>
 </div>
 </section>
 <section class="artists-controls" aria-label="Фильтры галереи">
-<div class="artists-filter" data-filter="style">
+<div class="artists-filter" data-filter="lighting">
 <button class="artists-filter-button" type="button" aria-expanded="false">
-<span>Художественное направление</span>
+<span>Освещение</span>
 <span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
 </button>
-<div class="artists-filter-menu" role="group" aria-label="Художественное направление"></div>
+<div class="artists-filter-menu" role="group" aria-label="Освещение"></div>
 </div>
-<div class="artists-filter" data-filter="technique">
+<div class="artists-filter" data-filter="lens">
 <button class="artists-filter-button" type="button" aria-expanded="false">
-<span>Техника исполнения</span>
+<span>Объектив</span>
 <span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
 </button>
-<div class="artists-filter-menu" role="group" aria-label="Техника исполнения"></div>
+<div class="artists-filter-menu" role="group" aria-label="Объектив"></div>
 </div>
-<div class="artists-filter" data-filter="genre">
+<div class="artists-filter" data-filter="composition">
 <button class="artists-filter-button" type="button" aria-expanded="false">
-<span>Жанр</span>
+<span>Композиция</span>
 <span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
 </button>
-<div class="artists-filter-menu" role="group" aria-label="Жанр"></div>
+<div class="artists-filter-menu" role="group" aria-label="Композиция"></div>
+</div>
+<div class="artists-filter" data-filter="shootingGenre">
+<button class="artists-filter-button" type="button" aria-expanded="false">
+<span>Жанр съёмки</span>
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</button>
+<div class="artists-filter-menu" role="group" aria-label="Жанр съёмки"></div>
 </div>
 </section>
 <section class="artists-results" aria-live="polite">
@@ -179,19 +186,21 @@
 </div>
 </div>
 </main>
-<script src="pics/painters/painters-data.js"></script>
+<script src="pics/photographs/photographs-data.js"></script>
 <script>
 (() => {
-    const items = Array.isArray(window.PAINTERS_ITEMS) ? window.PAINTERS_ITEMS : [];
+    const items = Array.isArray(window.PHOTOGRAPHS_ITEMS) ? window.PHOTOGRAPHS_ITEMS : [];
     const filters = {
-        style: ["Импрессионизм", "Экспрессионизм", "Сюрреализм", "Реализм", "Поп-арт", "Ар-нуво", "Кубизм", "Футуризм", "Барокко", "Романтизм", "Минимализм", "Концепт-арт", "Dark Fantasy", "Cyberpunk", "Steampunk", "Фэнтези", "Научная фантастика"],
-        technique: ["Масло", "Акварель", "Гуашь", "Пастель", "Карандаш", "Тушь", "Digital art", "3D Render", "Pixel Art"],
-        genre: ["Портрет", "Пейзаж", "Натюрморт", "Анималистика", "Абстракция"]
+        lighting: ["Высокий ключ","Дневной свет","Жёсткий свет","Контровой свет","Мягкий свет","Неоновое освещение","Низкий ключ"],
+        lens: ["135mm","15mm","50mm"],
+        composition: ["Вид сверху","Вид снизу","Нарушение композиции","Правило третей","Симметрия"],
+        shootingGenre: ["Мода","Пейзаж","Портрет","Продуктовая","Уличная"]
     };
     const selected = {
-        style: new Set(),
-        technique: new Set(),
-        genre: new Set()
+        lighting: new Set(),
+        lens: new Set(),
+        composition: new Set(),
+        shootingGenre: new Set()
     };
     const gallery = document.getElementById('artists-gallery');
     const empty = document.getElementById('artists-empty');
@@ -228,7 +237,7 @@
         if (!item) return;
         modalImage.src = getOriginalImage(item.image);
         modalImage.alt = item.prompt;
-        modalTitle.textContent = `${item.style} / ${item.technique}`;
+        modalTitle.textContent = item.title;
         modalDescription.textContent = item.prompt;
         modalTags.innerHTML = item.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('');
         modal.classList.add('is-open');
@@ -263,7 +272,7 @@
             <article class="artist-card" tabindex="0" data-index="${index}">
                 <img alt="${escapeHtml(item.prompt)}" data-src="${escapeHtml(item.image)}" loading="lazy">
                 <div class="artist-card-overlay">
-                    <p class="artist-card-title">${escapeHtml(item.style)} / ${escapeHtml(item.technique)}</p>
+                    <p class="artist-card-title">${escapeHtml(item.title)}</p>
                     <p class="artist-card-prompt">"${escapeHtml(item.prompt)}"</p>
                     <div class="artist-card-tags">
                         ${item.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}
