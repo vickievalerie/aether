@@ -1,0 +1,299 @@
+<!DOCTYPE html><html class="dark" lang="ru"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AETHER | Промпты художников</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-fixed": "#acedff",
+                    "surface-container-highest": "#353534",
+                    "tertiary-container": "#009eb9",
+                    "on-primary": "#002e6a",
+                    "secondary": "#d0bcff",
+                    "tertiary": "#4cd7f6",
+                    "on-secondary-container": "#c4abff",
+                    "primary-container": "#4d8eff",
+                    "tertiary-fixed-dim": "#4cd7f6",
+                    "inverse-on-surface": "#313030",
+                    "primary-fixed-dim": "#adc6ff",
+                    "inverse-primary": "#005ac2",
+                    "on-surface-variant": "#c2c6d6",
+                    "secondary-fixed": "#e9ddff",
+                    "inverse-surface": "#e5e2e1",
+                    "on-surface": "#e5e2e1",
+                    "surface-bright": "#3a3939",
+                    "surface-container-low": "#1c1b1b",
+                    "error-container": "#93000a",
+                    "primary": "#adc6ff",
+                    "surface-container-lowest": "#0e0e0e",
+                    "outline": "#8c909f",
+                    "outline-variant": "#424754",
+                    "surface-variant": "#353534",
+                    "surface-tint": "#adc6ff",
+                    "on-primary-container": "#00285d",
+                    "error": "#ffb4ab",
+                    "on-background": "#e5e2e1",
+                    "primary-fixed": "#d8e2ff",
+                    "surface-dim": "#131313",
+                    "on-secondary": "#3c0091",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "surface-container": "#201f1f",
+                    "on-tertiary-container": "#002f38",
+                    "on-error": "#690005",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "background": "#131313",
+                    "on-tertiary": "#003640",
+                    "on-primary-fixed": "#001a42",
+                    "secondary-container": "#571bc1",
+                    "on-tertiary-fixed": "#001f26",
+                    "surface": "#131313",
+                    "on-secondary-fixed": "#23005c",
+                    "on-primary-fixed-variant": "#004395",
+                    "on-secondary-fixed-variant": "#5516be"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "gutter": "32px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "label-md": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<link href="styles.css" rel="stylesheet">
+</head>
+<body class="font-body-md text-body-md">
+<div class="fixed pointer-events-none w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 bg-primary/10 blur-[160px] rounded-full z-0 opacity-40 transition-transform duration-300 ease-out" id="mouse-glow"></div>
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-2xl border-b border-white/10 shadow-[0_0_40px_rgba(173,198,255,0.05)]">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+<a class="flex items-center gap-4" href="index.html#top" aria-label="В начало страницы"><img alt="AETHER Logo" class="h-8 w-auto" src="assets/logo.png"><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tighter">AETHER</span></a>
+<div class="hidden lg:flex items-center gap-8">
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="artists.html">Художники</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="photographers.html">Фотографы</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="designers.html">Дизайнеры</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="index.html#why">О проекте</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="index.html#showcase">Галерея</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="index.html#author">Об авторе</a>
+</div>
+<div class="flex items-center gap-6">
+<button aria-label="Переключить тему" class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="dark_mode" id="theme-toggle" type="button">dark_mode</button>
+<button class="hidden lg:inline-flex bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-full active:scale-95 transition-transform">Начать</button>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Открыть меню" class="lg:hidden material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="menu" id="mobile-menu-toggle" type="button">menu</button>
+</div>
+</div>
+<div class="mobile-menu-panel lg:hidden absolute left-4 right-4 top-[64px] rounded-xl glass-panel border border-white/10 px-4 py-3" id="mobile-menu">
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="artists.html">Художники</a>
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="photographers.html">Фотографы</a>
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="designers.html">Дизайнеры</a>
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="index.html#why">О проекте</a>
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="index.html#showcase">Галерея</a>
+<a class="block py-3 text-on-surface-variant font-label-md hover:text-primary transition-colors" href="index.html#author">Об авторе</a>
+</div>
+</nav>
+<main class="prompt-page">
+<section class="prompt-hero animate-fade-up visible">
+<span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase">Мастерство промптов</span>
+<h1 class="font-display-lg text-headline-lg lg:text-display-lg leading-[1.05] tracking-tight">Художественные направления</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg">Каждое направление показано через три жанра: портрет, пейзаж и натюрморт. При обновлении страницы подборка меняется, сохраняя нужное направление и жанр.</p>
+</section>
+<section class="prompt-style-list" id="prompt-style-list" aria-live="polite"></section>
+</main>
+<script src="pics/painters/painters-data.js"></script>
+<script>
+(() => {
+    const items = Array.isArray(window.PAINTERS_ITEMS) ? window.PAINTERS_ITEMS : [];
+    const list = document.getElementById('prompt-style-list');
+    const styles = ["Импрессионизм", "Экспрессионизм", "Сюрреализм", "Реализм", "Поп-арт", "Ар-нуво", "Кубизм", "Футуризм", "Барокко", "Романтизм", "Минимализм", "Концепт-арт", "Dark Fantasy", "Cyberpunk", "Steampunk", "Фэнтези", "Научная фантастика"];
+    const genres = ["Портрет", "Пейзаж", "Натюрморт"];
+    const descriptions = {
+        "Импрессионизм": "Мягкий свет, живые мазки и ощущение момента важнее точного контура.",
+        "Экспрессионизм": "Направление строится на эмоциональном напряжении, контрастах и намеренной выразительной деформации.",
+        "Сюрреализм": "Сонная логика, неожиданные сочетания объектов и атмосфера невозможного.",
+        "Реализм": "Внимание к правдоподобной сцене, естественным деталям и убедительной материальности.",
+        "Поп-арт": "Яркие цвета, графичная подача и визуальный язык массовой культуры.",
+        "Ар-нуво": "Текучие линии, природные мотивы и декоративная изысканность композиции.",
+        "Кубизм": "Формы раскладываются на геометрические плоскости и показываются сразу с нескольких точек зрения.",
+        "Футуризм": "Динамика, скорость, техника и ощущение движения становятся главным образом.",
+        "Барокко": "Драматичный свет, насыщенные детали и театральная глубина пространства.",
+        "Романтизм": "Возвышенное настроение, сильные чувства и выразительная связь человека с природой.",
+        "Минимализм": "Сдержанная композиция, чистые формы и работа с пустым пространством.",
+        "Концепт-арт": "Визуальная разработка идеи, мира или персонажа с ясным постановочным фокусом.",
+        "Dark Fantasy": "Мрачная сказочность, готическая атмосфера и тревожные фантастические детали.",
+        "Cyberpunk": "Высокие технологии, городская плотность, неоновые акценты и контраст человека с системой.",
+        "Steampunk": "Викторианская механика, латунь, паровые детали и ретрофутуристическая инженерия.",
+        "Фэнтези": "Мифологическое воображение, магические элементы и образность вымышленных миров.",
+        "Научная фантастика": "Технологические гипотезы, космические мотивы и визуальная логика будущего."
+    };
+    const escapeHtml = (value) => String(value || '').replace(/[&<>"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[char]));
+    const randomItem = (pool) => pool[Math.floor(Math.random() * pool.length)];
+
+    const renderCard = (item, genre) => {
+        if (!item) return '';
+        return `
+            <article class="prompt-sample-card">
+                <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.prompt)}" loading="lazy">
+                <div class="prompt-sample-content">
+                    <p class="prompt-sample-title">${escapeHtml(item.style)} / ${escapeHtml(genre)}</p>
+                    <p class="prompt-sample-prompt">"${escapeHtml(item.prompt)}"</p>
+                    <div class="prompt-card-tags">
+                        ${item.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}
+                    </div>
+                </div>
+            </article>
+        `;
+    };
+
+    list.innerHTML = styles.map((style) => {
+        const cards = genres.map((genre) => {
+            const candidates = items.filter((item) => item.style === style && item.genre === genre);
+            return renderCard(randomItem(candidates), genre);
+        }).join('');
+        return `
+            <section class="prompt-style-section">
+                <div class="prompt-style-header">
+                    <h2>${escapeHtml(style)}</h2>
+                    <p>${escapeHtml(descriptions[style])}</p>
+                </div>
+                <div class="prompt-samples">${cards}</div>
+            </section>
+        `;
+    }).join('');
+})();
+</script>
+<footer class="bg-surface-container-lowest border-t border-outline-variant/30 w-full py-12 relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="flex items-center gap-2">
+<img alt="Logo" class="h-6" src="assets/logo.png">
+<span class="font-headline-sm text-headline-sm font-bold text-primary uppercase"><br></span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant opacity-80">ⓒ 2026 vickievalerie все права защищены</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant font-label-md hover:text-tertiary transition-colors" href="https://t.me/vickievalerie">Telegram</a>
+<a class="text-on-surface-variant font-label-md hover:text-tertiary transition-colors" href="https://vk.com/vickievalerie">ВКонтакте</a>
+<a class="text-on-surface-variant font-label-md hover:text-tertiary transition-colors" href="#">Условия</a>
+<a class="text-on-surface-variant font-label-md hover:text-tertiary transition-colors" href="#">Конфиденциальность</a>
+</div>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="language">language</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="help_outline">help_outline</button>
+</div>
+</div>
+</footer>
+<script>
+    const glow = document.getElementById('mouse-glow');
+    document.addEventListener('mousemove', (e) => {
+        if (glow) {
+            glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        }
+    });
+
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const nav = document.querySelector('nav');
+
+    const getStoredTheme = () => {
+        try {
+            return localStorage.getItem('theme');
+        } catch (error) {
+            return null;
+        }
+    };
+
+    const setStoredTheme = (theme) => {
+        try {
+            localStorage.setItem('theme', theme);
+        } catch (error) {
+        }
+    };
+
+    const applyTheme = (theme) => {
+        const isLight = theme === 'light';
+        root.classList.toggle('light', isLight);
+        root.classList.toggle('dark', !isLight);
+
+        if (themeToggle) {
+            themeToggle.textContent = isLight ? 'light_mode' : 'dark_mode';
+            themeToggle.setAttribute('data-icon', isLight ? 'light_mode' : 'dark_mode');
+            themeToggle.setAttribute('aria-label', isLight ? 'Переключить на тёмную тему' : 'Переключить на светлую тему');
+        }
+    };
+
+    applyTheme(getStoredTheme() || 'dark');
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = root.classList.contains('light') ? 'dark' : 'light';
+            setStoredTheme(nextTheme);
+            applyTheme(nextTheme);
+        });
+    }
+
+    const setMobileMenu = (isOpen) => {
+        if (!mobileMenu || !mobileMenuToggle) return;
+        mobileMenu.classList.toggle('is-open', isOpen);
+        mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+        mobileMenuToggle.textContent = isOpen ? 'close' : 'menu';
+        mobileMenuToggle.setAttribute('data-icon', isOpen ? 'close' : 'menu');
+        mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    };
+
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+            setMobileMenu(!mobileMenu.classList.contains('is-open'));
+        });
+
+        document.addEventListener('click', (event) => {
+            if (mobileMenu.classList.contains('is-open') && nav && !nav.contains(event.target)) {
+                setMobileMenu(false);
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                setMobileMenu(false);
+            }
+        });
+    }
+</script>
+</body></html>

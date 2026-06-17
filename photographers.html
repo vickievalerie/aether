@@ -166,7 +166,8 @@
 </button>
 <div class="artists-filter-menu" role="group" aria-label="Жанр съёмки"></div>
 </div>
-<button class="artists-clear-filters" id="clear-filters" type="button" disabled>Очистить все фильтры</button>
+<button class="artists-action-button artists-clear-filters" id="clear-filters" type="button" disabled>Очистить все фильтры</button>
+<button class="artists-action-button" id="refresh-gallery" type="button">Обновить</button>
 </section>
 <section class="artists-results" aria-live="polite">
 <div class="artists-gallery" id="artists-gallery"></div>
@@ -206,6 +207,7 @@
     const gallery = document.getElementById('artists-gallery');
     const empty = document.getElementById('artists-empty');
     const clearFiltersButton = document.getElementById('clear-filters');
+    const refreshGalleryButton = document.getElementById('refresh-gallery');
     const modal = document.getElementById('artist-modal');
     const modalImage = document.getElementById('artist-modal-image');
     const modalTitle = document.getElementById('artist-modal-title');
@@ -354,6 +356,12 @@
         renderGallery();
         clearFiltersButton.blur();
     });
+
+    refreshGalleryButton.addEventListener('click', () => {
+        renderGallery();
+        refreshGalleryButton.blur();
+    });
+
     gallery.addEventListener('click', (event) => {
         const card = event.target.closest('.artist-card');
         if (!card) return;
