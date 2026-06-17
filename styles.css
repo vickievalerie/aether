@@ -466,6 +466,10 @@ html.light nav button:hover {
     z-index: 20;
 }
 
+.artists-filter.is-open {
+    z-index: 40;
+}
+
 .artists-filter-button {
     width: 100%;
     min-height: 48px;
@@ -505,10 +509,8 @@ html.light nav button:hover {
 }
 
 .artists-filter-menu {
-    position: absolute;
-    left: 0;
-    top: calc(100% + 8px);
-    width: min(360px, 100%);
+    width: 100%;
+    margin-top: 8px;
     max-height: 312px;
     display: none;
     grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
@@ -545,6 +547,43 @@ html.light nav button:hover {
     border-color: rgba(173, 198, 255, 0.78);
     background: rgba(77, 142, 255, 0.18);
     color: #e5e2e1;
+}
+
+@media (hover: none) {
+    .artists-filter-option:hover:not(.is-selected) {
+        border-color: rgba(173, 198, 255, 0.16);
+        background: rgba(18, 24, 42, 0.78);
+        color: #c2c6d6;
+    }
+}
+
+.artists-clear-filters {
+    min-height: 48px;
+    align-self: start;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(173, 198, 255, 0.22);
+    background: rgba(10, 15, 30, 0.62);
+    color: #adc6ff;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: border-color 160ms ease, background 160ms ease, color 160ms ease, opacity 160ms ease;
+}
+
+.artists-clear-filters:not(:disabled):hover,
+.artists-clear-filters:not(:disabled):focus-visible {
+    border-color: rgba(173, 198, 255, 0.78);
+    background: rgba(77, 142, 255, 0.18);
+    color: #e5e2e1;
+    outline: none;
+}
+
+.artists-clear-filters:disabled {
+    cursor: not-allowed;
+    opacity: 0.42;
 }
 
 .artists-gallery {
@@ -812,7 +851,6 @@ html.light .artist-modal-close {
     }
 
     .artists-filter-menu {
-        position: static;
         width: 100%;
         margin-top: 8px;
     }

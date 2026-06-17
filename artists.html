@@ -159,6 +159,7 @@
 </button>
 <div class="artists-filter-menu" role="group" aria-label="Жанр"></div>
 </div>
+<button class="artists-clear-filters" id="clear-filters" type="button" disabled>Очистить все фильтры</button>
 </section>
 <section class="artists-results" aria-live="polite">
 <div class="artists-gallery" id="artists-gallery"></div>
@@ -195,6 +196,7 @@
     };
     const gallery = document.getElementById('artists-gallery');
     const empty = document.getElementById('artists-empty');
+    const clearFiltersButton = document.getElementById('clear-filters');
     const modal = document.getElementById('artist-modal');
     const modalImage = document.getElementById('artist-modal-image');
     const modalTitle = document.getElementById('artist-modal-title');
@@ -275,10 +277,17 @@
         setupLazyImages();
     };
 
+    const updateClearFiltersButton = () => {
+        const hasActiveFilters = Object.values(selected).some((values) => values.size > 0);
+        clearFiltersButton.disabled = !hasActiveFilters;
+    };
+
     const updateButtonLabel = (filterEl, key, label) => {
         const count = selected[key].size;
         const text = count > 0 ? `${label}: ${count}` : label;
         filterEl.querySelector('.artists-filter-button > span:first-child').textContent = text;
+        filterEl.classList.toggle('has-selection', count > 0);
+        updateClearFiltersButton();
     };
 
     document.querySelectorAll('.artists-filter').forEach((filterEl) => {
@@ -310,6 +319,7 @@
                 selected[key].delete(value);
                 option.classList.remove('is-selected');
                 option.setAttribute('aria-pressed', 'false');
+                option.blur();
             } else {
                 selected[key].add(value);
                 option.classList.add('is-selected');
@@ -320,6 +330,21 @@
         });
     });
 
+    clearFiltersButton.addEventListener('click', () => {
+        Object.values(selected).forEach((values) => values.clear());
+        document.querySelectorAll('.artists-filter').forEach((filterEl) => {
+            const key = filterEl.dataset.filter;
+            const label = filterEl.querySelector('.artists-filter-menu').getAttribute('aria-label');
+            filterEl.querySelectorAll('.artists-filter-option').forEach((option) => {
+                option.classList.remove('is-selected');
+                option.setAttribute('aria-pressed', 'false');
+                option.blur();
+            });
+            updateButtonLabel(filterEl, key, label);
+        });
+        renderGallery();
+        clearFiltersButton.blur();
+    });
     gallery.addEventListener('click', (event) => {
         const card = event.target.closest('.artist-card');
         if (!card) return;
@@ -356,6 +381,7 @@
         });
     });
 
+    updateClearFiltersButton();
     renderGallery();
 })();
 </script>
