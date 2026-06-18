@@ -104,7 +104,7 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-2xl border-b border-white/10 shadow-[0_0_40px_rgba(173,198,255,0.05)]">
 <div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
-<a class="flex items-center gap-4" href="index.html#top" aria-label="В начало страницы"><img alt="AETHER Logo" class="h-8 w-auto" src="assets/logo.png"><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tighter">AETHER</span></a>
+<a class="flex items-center gap-4" href="index.html#top" aria-label="В начало страницы"><img alt="AETHER Logo" class="h-8 w-auto" data-logo-dark="assets/logo.png" data-logo-light="assets/logo light.png" data-theme-logo src="assets/logo.png"><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tighter">AETHER</span></a>
 <div class="hidden lg:flex items-center gap-8">
 <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="artists.html">Художники</a>
 <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300" href="photographers.html">Фотографы</a>
@@ -133,7 +133,7 @@
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="top">
 <div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/40 to-[#050505] z-10"></div>
+<div class="absolute inset-0 hero-overlay z-10"></div>
 <div class="parallax-bg hero-bg w-full h-full bg-cover bg-center transition-opacity duration-1000 pulse-bg"></div>
 </div>
 <div class="relative z-10 w-full px-margin-desktop max-w-container-max mx-auto grid lg:grid-cols-2 gap-16 items-center">
@@ -326,7 +326,7 @@
 <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-gutter">
 <div class="flex flex-col items-center md:items-start gap-4">
 <div class="flex items-center gap-2">
-<img alt="Logo" class="h-6" src="assets/logo.png">
+<img alt="Logo" class="h-6" data-logo-dark="assets/logo.png" data-logo-light="assets/logo light.png" data-theme-logo src="assets/logo.png">
 <span class="font-headline-sm text-headline-sm font-bold text-primary uppercase"><br></span>
 </div>
 <p class="font-label-md text-label-md text-on-surface-variant opacity-80">ⓒ 2026 vickievalerie все права защищены</p>
@@ -358,6 +358,7 @@
 
     const root = document.documentElement;
     const themeToggle = document.getElementById('theme-toggle');
+    const themeLogos = document.querySelectorAll('[data-theme-logo]');
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const nav = document.querySelector('nav');
@@ -388,6 +389,10 @@
             themeToggle.setAttribute('data-icon', isLight ? 'light_mode' : 'dark_mode');
             themeToggle.setAttribute('aria-label', isLight ? 'Переключить на тёмную тему' : 'Переключить на светлую тему');
         }
+
+        themeLogos.forEach((logo) => {
+            logo.src = isLight ? logo.dataset.logoLight : logo.dataset.logoDark;
+        });
     };
 
     const savedTheme = getStoredTheme() || 'dark';
