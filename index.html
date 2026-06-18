@@ -306,6 +306,24 @@
             <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.prompt)}" loading="lazy">
         </a>
     `).join('');
+
+    const desktopGalleryScroll = window.matchMedia('(min-width: 1024px)');
+    gallery.addEventListener('wheel', (event) => {
+        if (!desktopGalleryScroll.matches || event.deltaY === 0) return;
+
+        const maxScrollLeft = gallery.scrollWidth - gallery.clientWidth;
+        if (maxScrollLeft <= 0) return;
+
+        const scrollingLeft = event.deltaY < 0;
+        const scrollingRight = event.deltaY > 0;
+        const atStart = gallery.scrollLeft <= 0;
+        const atEnd = gallery.scrollLeft >= maxScrollLeft - 1;
+
+        if ((scrollingLeft && atStart) || (scrollingRight && atEnd)) return;
+
+        event.preventDefault();
+        gallery.scrollLeft = Math.min(maxScrollLeft, Math.max(0, gallery.scrollLeft + event.deltaY));
+    }, { passive: false });
 })();
 </script>
 <!-- Author -->
